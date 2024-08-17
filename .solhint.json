@@ -2,11 +2,22 @@
   "extends": "solhint:recommended",
   "plugins": ["prettier"],
   "rules": {
+    // Enforces a maximum cyclomatic complexity of 8 for functions to keep code simple and maintainable.
     "code-complexity": ["error", 8],
+
+    // Ensures that the Solidity compiler version is at least 0.8.4 to take advantage of newer features and security fixes.
     "compiler-version": ["error", ">=0.8.4"],
+
+    // Requires explicit visibility for functions, except for constructors, to improve code readability and security.
     "func-visibility": ["error", { "ignoreConstructors": true }],
+
+    // Enforces a maximum line length of 120 characters to maintain code readability.
     "max-line-length": ["error", 120],
+
+    // Disables the rule that prevents reliance on `block.timestamp`, which is sometimes necessary in specific use cases.
     "not-rely-on-time": "off",
+
+    // Warns when reason strings (error messages) exceed 64 characters to keep revert messages concise.
     "reason-string": ["warn", { "maxLength": 64 }]
   }
 }
